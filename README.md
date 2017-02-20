@@ -62,5 +62,5 @@ Unless `callerid.php` is modified otherwise it will use a text file named `calle
 
 
 
-&copy; 2017 Jim Motyl
+(c) 2017 Jim Motyl
 
