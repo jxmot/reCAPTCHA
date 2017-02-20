@@ -1,4 +1,4 @@
-# reCAPTCHA - A Basic Example Using PHP      &copy; 2017 Jim Motyl
+# reCAPTCHA - A Basic Example Using PHP
 
 ## Overview
 
@@ -24,11 +24,14 @@ The following files are present -
 ## Use
 
 To prepare for first use edit `site.php` and change the following as needed - 
-  * line 9 : your reCAPTCHA *site key* goes here
-  * line 10 : your reCAPTCHA *secret* goes here
-  * line 19 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
-  * lines 25 and 26 : reCAPTCHA page title and heading.
-  * line 28 : Submit button caption
+
+* line 9 : your reCAPTCHA *site key* goes here
+* line 10 : your reCAPTCHA *secret* goes here
+* line 19 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
+* lines 25 and 26 : reCAPTCHA page title and heading.
+* line 28 : Submit button caption
+
+Then follow these steps :
 
 1. Copy all of the files into a folder on your server.
 2. Use your browser and go to `https://yourserver/optional-path/`, where `optional-path` is where you placed the files.
@@ -45,11 +48,11 @@ The user name field is saved in a PHP session as `$_SESSION['userName']`. This m
 
 There are two files unrelated to reCAPTCHA, they are `count.php` and `callerid.php`. Although commented out, they're called in `index.php` on lines 33 and 34. The following sections describe their behaviors.
 
-#### `count.php`
+#### count.php
 
 This file maintains a hit counter in a text file that is saved in the same folder where `count.php` is used. Unless `count.php` is modified otherwise it will use a text file named `count.log`. If the counter file does not exist the first time `count.php` is used it will be created automatically.
 
-#### `callerid.php`
+#### callerid.php
 
 This file maintains a text file that contains a time stamped record with the visitors IP address - 
 
@@ -58,4 +61,6 @@ This file maintains a text file that contains a time stamped record with the vis
 Unless `callerid.php` is modified otherwise it will use a text file named `callerid.log`. If the log file does not exist the first time `callerid.php` is used it will be created automatically. In additon, if the file exceeds approximately 20k in size it is copied to a time stamped back up copy and a new caller ID log is created.
 
 
+
+&copy; 2017 Jim Motyl
 
