@@ -18,7 +18,7 @@ The following files are present -
 ### Requirements
 
 * A server capable of **https**. 
-* PHP 5.6
+* PHP 5.6 or newer.
 * You must sign up for a reCAPTCHA account and obtain the site key and secret for your site. Start here - <https://www.google.com/recaptcha/intro/index.html>
 
 ## Use
