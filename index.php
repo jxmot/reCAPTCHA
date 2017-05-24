@@ -1,13 +1,18 @@
 <?php
 session_start();
 
-// site and page specific variables
-require_once "site.php";
+// site and page specific variables...
+// MySQL version - 
+require_once "sitedb.php";
+// -- OR --
+// No db version
+//require_once "site.php";
 
 /* ********************************************************
     reCAPTCHA 
 
-
+    Google's reCAPTCHA method for validating a vistor vs.
+    a bot. 
 */
 require_once "recaptchalib.php";
 
@@ -16,7 +21,7 @@ $resp = null;
 // The error code from reCAPTCHA, if any
 $error = null;
 
-// 
+// get a ReCaptcha object....
 $reCaptcha = new ReCaptcha(SITE_SECRET);
 
 // Was there a reCAPTCHA response?
@@ -27,11 +32,11 @@ if ($_POST["g-recaptcha-response"]) {
     );
 }
 /* ********************************************************
-    Silent hit counter and a visitor log of date/time and
-    ip address.
+    Optional silent hit counter and a visitor log of date/
+    time and ip address.
 */
-// require_once "count.php";
-// require_once "callerid.php";
+//require_once "count.php";
+//require_once "callerid.php";
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo SITE_LANG;?>">
@@ -72,6 +77,8 @@ if ($resp != null && $resp->success) {
     // Save the userName in the session before
     // saving and closing the session.
     $_SESSION['userName']=$_POST['userName'];
+    
+    $_SESSION['site_id']=SITE_ID;
 
     session_write_close();
 
@@ -86,6 +93,7 @@ if ($resp != null && $resp->success) {
 ?>
     <div class="text-center">
         <h1><?php echo PAGE_HEADING;?></h1>
+        <p><?php echo PAGE_MESSAGE;?></p>
         <form action="" method="post">
             <br/>
             <br/>
