@@ -1,13 +1,17 @@
 # reCAPTCHA - A Basic Example Using PHP and MySQL
 
-
 * [Overview](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-overview)
     * [History](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-history)
 * [Requirements](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-requirements)
     * [reCAPTCHA and localhost](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-recaptcha-and-localhost)
     * [Local Server](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-local-server)
 * [Components](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-components)
-
+* [Use](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-use)
+    * [With MySQL](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-with-mysql)
+    * [Without MySQL](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-without-mysql)
+    * [Screen Shot](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-screen-shot)
+* [Features](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-features)
+    * [] 
 
 # Overview
 
@@ -69,21 +73,27 @@ Then follow these steps :
 3. Fill in the name field and click the submit button.
 4. The `phpinfo.php` should load and display information about the PHP installation on your server.
 
-## Features
+## Screen Shot
 
-### Form User Name
+If your just reCAPTCHA *site key*, *secret*, and *domains* have been set properly, and your server is running then you should see the following - 
+
+![reCAPTCHA Demo](./mdimg/recaptcha-thumb-900x500.png)
+
+# Features
+
+## Form User Name
 
 The user name field is saved in a PHP session as `$_SESSION['userName']`. This makes it available to the `SITE_APPL` page. And in this demo `phpinfo.php` will display the user name at the top of the page when it is loaded.
 
-### Hit Counter and Caller ID
+## Hit Counter and Caller ID
 
 There are two files unrelated to reCAPTCHA, they are `count.php` and `callerid.php`. Although commented out, they're called in `index.php` on lines 33 and 34. The following sections describe their behaviors.
 
-#### count.php
+### count.php
 
 This file maintains a hit counter in a text file that is saved in the same folder where `count.php` is used. Unless `count.php` is modified otherwise it will use a text file named `count.log`. If the counter file does not exist the first time `count.php` is used it will be created automatically.
 
-#### callerid.php
+### callerid.php
 
 This file maintains a text file that contains a time stamped record with the visitors IP address - 
 
