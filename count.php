@@ -1,7 +1,7 @@
 <?php
 // invisible counter -
 // opens a file to read the current number of hits
-$counter = 'count.log';
+$counter = SITE_ID . '_count.log';
 $cntpath = './';
 $cntfile = $cntpath . $counter;
 // if the counter file doesn't exist then create 

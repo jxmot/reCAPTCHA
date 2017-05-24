@@ -4,7 +4,7 @@
 // size of the file and if it exceeds a fixed value
 // then it is copied and renamed with the current 
 // date and then the original file is deleted.
-$callerid = 'callerid.log';
+$callerid = SITE_ID . '_callerid.log';
 $idpath   = './';
 $idfile   = $idpath . $callerid;
 if(file_exists($idfile)) {
