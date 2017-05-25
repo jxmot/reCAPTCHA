@@ -85,6 +85,20 @@ The following is only found in `sitedb.php` -
 
 **NOTE :** Modify the user and password as needed to suit your database server's and application's security requirements.
 
+The following is also found in `sitedb.php`, it used in finding the correct settings in the database - 
+
+```php
+  $_site_id = 'demo_01';          // unique identifier for this reCAPTCHA site
+```
+
+**NOTE :** It is recommended that the *site ID* string contain only - 
+
+* Letters - uppercase, lowercase, or mixed
+* Numbers - 0 through 9, as necessary
+* Other - `_` (*underscore*), `-` (*hyphen*)
+
+It should **not** contain any whitespace, or characters not listed above.
+
 ### SQL Files
 
 The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run them*) to create the table's schema and to seed some data. The data in the `seed.sql` file is for demonstration only, edit as necessary or create your own seed-file.
@@ -93,6 +107,7 @@ The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run
 
 To prepare for first use edit `site.php` and change the following as needed - 
 
+* line 2 : unique identifier for this reCAPTCHA site, 
 * line 12 : your reCAPTCHA *site key* goes here
 * line 13 : your reCAPTCHA *secret* goes here
 * line 22 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
