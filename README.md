@@ -41,7 +41,7 @@ Before you can use reCAPTCHA when serving from *localhost* you will need to go t
 
 ## Local Server
 
-My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see <https://bitbucket.org/jxmot/toolbox/MAMP.md>.
+My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see <https://bitbucket.org/jxmot/toolbox/MAMP.md>. Another option is to disable *one* of your MySQL servers.
 
 # Components
 
@@ -155,15 +155,19 @@ There are two files unrelated to reCAPTCHA, they are `count.php` and `callerid.p
 
 **`count.php` :**
 
-This file maintains a hit counter in a text file that is saved in the same folder where `count.php` is used. Unless `count.php` is modified otherwise it will use a text file named `count.log`. If the counter file does not exist the first time `count.php` is used it will be created automatically.
+This file maintains a hit counter in a text file that is saved in the same folder where `count.php` is used. The file is named `siteID_count.log`. Where `siteID` is the string that had been configured above. If using the demonstration settings that string will be `demo_01`.
+
+If the counter file does not exist the first time `count.php` is ran it will be created automatically.
 
 **`callerid.php` :**
 
-This file maintains a text file that contains a time stamped record with the visitors IP address - 
+This file maintains a text file that is saved in the same folder where `callerid.php` is used. The file is named `siteID_callerid.log`. Where `siteID` is the string that had been configured above. If using the demonstration settings that string will be `demo_01`.
+
+For each visitor a time stamped record with the visitors IP address is created - 
 
 `2017/02/18 - 18:42:27 > 66.102.7.192`
 
-Unless `callerid.php` is modified otherwise it will use a text file named `callerid.log`. If the log file does not exist the first time `callerid.php` is used it will be created automatically. In additon, if the file exceeds approximately 20k in size it is copied to a time stamped back up copy and a new caller ID log is created.
+If the log file does not exist the first time `callerid.php` is ran it will be created automatically. In additon, if the file exceeds approximately 20k in size it is copied to a time stamped back up copy and a new caller ID log is created. The time stamp in the file name will be the date and time when the *back up* is created.
 
 # Future
 
