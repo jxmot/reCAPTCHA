@@ -175,6 +175,7 @@ If the log file does not exist the first time `callerid.php` is ran it will be c
 
 * An administration form is planned that will allow an admin user to enter sites into the database.
 * Might create a MongoDB version.
+* Store the CSS in the site config data.
 
 (c) 2017 Jim Motyl
 
