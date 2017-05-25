@@ -100,7 +100,7 @@ if ($resp != null && $resp->success) {
             <input id="userName" name="userName" placeholder="Please enter your name" required></input>
             <br/>
             <br/>
-            <div class="g-recaptcha block-centered" data-sitekey="<?php echo SITE_KEY;?>" data-theme="dark"></div>
+            <div class="g-recaptcha block-centered" data-sitekey="<?php echo SITE_KEY;?>" data-theme="<?php echo RECAPTCHA_THEME;?>"></div>
             <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=<?php echo SITE_LANG;?>"></script>
             <br/>
             <br/>

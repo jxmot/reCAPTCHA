@@ -27,4 +27,6 @@ define('PAGE_TITLE', 'Title for this Page goes here');
 define('PAGE_HEADING', 'Page Heading');
 // Submit button caption
 define('FORM_SUBMIT', 'Enter');
+// reCAPTCHA theme (light or dark)
+define('RECAPTCHA_THEME', 'dark');
 ?>
