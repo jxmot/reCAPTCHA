@@ -8,13 +8,15 @@
 * [Components](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-components)
 * [Use](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-use)
     * [With MySQL](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-with-mysql)
+        * [MySQL Configuration Items](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-mysql-configuration-items)
+        * [SQL Files](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-sql-files)
     * [Without MySQL](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-without-mysql)
     * [Screen Shot](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-screen-shot)
 * [Features](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-features)
     * [Configuration](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-configuration)
-        * [MySQL Configuration Items](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-mysql-configuration-items)
     * [Form User Name](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-form-user-name)
     * [Hit Counter and Caller ID](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-hit-counter-and-caller-id)
+* [Future](https://bitbucket.org/jxmot/recaptcha/overview#markdown-header-future)
 
 # Overview
 
@@ -57,19 +59,48 @@ The following files are present -
 
 # Use
 
+The following sections describe two methods of use, "*With MySQL*" and "*Without MySQL*". To switch between them modify `index.php`, lines 6 and 8. The default is to use MySQL.
+
 ## With MySQL
+
+Use the following steps - 
+
+1. Edit `sitedb.php`, `create_table.sql` and `seed.sql` as necessary
+2. Run `create_table.sql`
+3. Run `seed.sql`
+4. Copy all of the files into a folder on your server
+5. Run `index.php` as a client to your server
+
+### MySQL Configuration Items
+
+The following is only found in `sitedb.php` - 
+
+```php
+  $_db_name = 'recaptcha_dev';    // database name
+  $_site_table = 'sites';         // table name
+  $_db_server = 'localhost';      // MySQL server
+  $_db_user = 'root';             // MySQL user 
+  $_db_passw = 'root';            // MySQL user's password
+```
+
+**NOTE :** Modify the user and password as needed to suit your database server's and application's security requirements.
+
+### SQL Files
+
+The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run them*) to create the table's schema and to seed some data. The data in the `seed.sql` file is for demonstration only, edit as necessary or create your own seed-file.
 
 ## Without MySQL
 
 To prepare for first use edit `site.php` and change the following as needed - 
 
-* line 9 : your reCAPTCHA *site key* goes here
-* line 10 : your reCAPTCHA *secret* goes here
-* line 19 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
-* lines 25 and 26 : reCAPTCHA page title and heading.
-* line 28 : Submit button caption
+* line 12 : your reCAPTCHA *site key* goes here
+* line 13 : your reCAPTCHA *secret* goes here
+* line 22 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
+* lines 26, 27, 28  : reCAPTCHA page title, heading, and message.
+* line 30 : Submit button caption
+* line 32 : reCAPTCHA theme - `light` or `dark`
 
-Then follow these steps :
+**Then follow these steps :**
 
 1. Copy all of the files into a folder on your server.
 2. Use your browser and go to `https://yourserver/optional-path/`, where `optional-path` is where you placed the files.
@@ -86,7 +117,7 @@ If your just reCAPTCHA *site key*, *secret*, and *domains* have been set properl
 
 ## Configuration
 
-Either the hard-coded (`site.php`) or the MySQL (`sitedb.php`) have the following configurable items - 
+Either the hard-coded (`site.php`) or the MySQL (`sitedb.php` and `seed.sql`) have the following configurable items - 
 
 * reCAPTCHA *site key* and *site secret*.
 * Site ID - a unique string used for identifying the specific site using this reCAPTCHA (*found in* `site.php` *and* `sitedb.php` *as* `$_site_id`)
@@ -98,20 +129,6 @@ Either the hard-coded (`site.php`) or the MySQL (`sitedb.php`) have the followin
 * Page Message - any content (*including HTML*) to be used as a message to the user
 * Form Submit Button Caption - the caption to be used in the submit button
 * reCAPTCHA Theme - `light` or `dark` are the only two choices allowed by reCAPTCHA
-
-### MySQL Configuration Items
-
-The following is only found in `sitedb.php` - 
-
-```php
-  $_db_name = 'recaptcha_dev';    // database name
-  $_site_table = 'sites';         // table name
-  $_db_server = 'localhost';      // MySQL server
-  $_db_user = 'root';             // MySQL user 
-  $_db_passw = 'root';            // MySQL user's password
-```
-
-**NOTE :** Modify the user and password as needed to suit your application's security requirements.
 
 ## Form User Name
 
@@ -133,7 +150,10 @@ This file maintains a text file that contains a time stamped record with the vis
 
 Unless `callerid.php` is modified otherwise it will use a text file named `callerid.log`. If the log file does not exist the first time `callerid.php` is used it will be created automatically. In additon, if the file exceeds approximately 20k in size it is copied to a time stamped back up copy and a new caller ID log is created.
 
+# Future
 
+* An administration form is planned that will allow an admin user to enter sites into the database.
+* Might create a MongoDB version.
 
 (c) 2017 Jim Motyl
 
