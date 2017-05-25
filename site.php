@@ -25,6 +25,7 @@ define('SITE_APPL', './phpinfo.php');
 */
 define('PAGE_TITLE', 'Title for this Page goes here');
 define('PAGE_HEADING', 'Page Heading');
+define('PAGE_MESSAGE', 'This demonstration illustrates reCAPTCHA v2 and MySQL, where MySQL is used for storing things like site specific content. Like this message.');
 // Submit button caption
 define('FORM_SUBMIT', 'Enter');
 // reCAPTCHA theme (light or dark)
