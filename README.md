@@ -43,7 +43,7 @@ localhost
 
 ## Local Server
 
-My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see <https://bitbucket.org/jxmot/toolbox/MAMP.md>. Another option is to disable *one* of your MySQL servers.
+My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see [MAMP Set Up](https://bitbucket.org/jxmot/toolbox/src/f748ca316f0095eb0e298a24348f21b2315808d9/MAMP.md?fileviewer=file-view-default). Another option is to disable *one* of your MySQL servers.
 
 # Components
 
