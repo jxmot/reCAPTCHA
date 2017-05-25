@@ -37,6 +37,7 @@ As an *improvement* to the gallery version I decided to use a MySQL database to 
 Before you can use reCAPTCHA when serving from *localhost* you will need to go to **_Key Settings_** and add the following lines to the **_Domains_** box - 
 
 `localhost`
+<br>
 `127.0.0.1`
 
 ## Local Server
