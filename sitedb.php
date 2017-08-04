@@ -32,6 +32,7 @@ $_db_passw = 'root';
     caller ID and hit count code when naming their output files.
 */
 $_site_id = 'demo_01';
+define('SITE_ID', $_site_id);
 
 /* ************************************************************************* */
 /* connect to the server and database... */
@@ -57,8 +58,6 @@ if ($result = mysqli_query($sqldb, "SELECT * FROM " . $_db_table . " WHERE site_
     }
     /* fetch associative array */
     $row = $result->fetch_assoc();
-    
-    define('SITE_ID', $_site_id);
     
     /*
         Register API keys at - 
