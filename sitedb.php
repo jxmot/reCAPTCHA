@@ -11,13 +11,13 @@
     If 'recaptcha_dev' is modified, you must also modify seed.sql and 
     create_table.sql. 
     
-    If '_site_table' is modified, you must also modify seed.sql and 
+    If '_db_table' is modified, you must also modify seed.sql and 
     create_table.sql. 
     
     The other variables may also be modified as needed. 
 */
 $_db_name = 'recaptcha_dev';
-$_site_table = 'sites';
+$_db_table = 'sites';
 $_db_server = 'localhost';
 $_db_user = 'root';
 $_db_passw = 'root';
@@ -47,7 +47,7 @@ if (!$sqldb) {
 }
 
 /* Select queries return a resultset */
-if ($result = mysqli_query($sqldb, "SELECT * FROM " . $_site_table . " WHERE site_id='" . $_site_id . "'")) {
+if ($result = mysqli_query($sqldb, "SELECT * FROM " . $_db_table . " WHERE site_id='" . $_site_id . "'")) {
     /* expecting only one row to be returned */
     if (($cnt = mysqli_num_rows($result)) != 1) {
         echo "<p>";
