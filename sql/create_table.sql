@@ -1,6 +1,8 @@
 -- change as desired, the '_dev' can be removed.
 -- NOTE: If modified, must also modify seed.sql
 -- and sitedb.php
+create schema recaptcha_dev;
+
 use recaptcha_dev;
 
 create table sites(
