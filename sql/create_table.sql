@@ -1,7 +1,11 @@
 -- change as desired, the '_dev' can be removed.
 -- NOTE: If modified, must also modify seed.sql
 -- and sitedb.php
-create schema recaptcha_dev;
+-- 
+-- NOTE: Only create the schema from here when you're
+-- working with a database that does NOT require it
+-- to have "priviledged users".
+-- create schema recaptcha_dev;
 
 use recaptcha_dev;
 
