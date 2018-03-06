@@ -93,7 +93,7 @@ if ($resp != null && $resp->success) {
 ?>
     <div class="text-center">
         <h1><?php echo PAGE_HEADING;?></h1>
-        <p><?php echo PAGE_MESSAGE;?></p>
+        <h3><?php echo PAGE_MESSAGE;?></h3>
         <form action="" method="post">
             <br/>
             <br/>
