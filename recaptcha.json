@@ -5,6 +5,7 @@
 
     "mdfilerem": true,
     "mdfile"   : "README.md",
+    "mdpageopt": "./mdpageopt.json",
 
     "pagetitle": "reCAPTCHA - README",
 
@@ -17,6 +18,9 @@
     "metaauth" : "https://github.com/jxmot",
 
     "genstatic": false,
-    "statname" : "./reCAPTCHA.html"
+    "statname" : "./reCAPTCHA.html",
+
+    "oghead": false,
+    "ogjson": ""
 }
 
