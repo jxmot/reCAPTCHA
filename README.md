@@ -1,5 +1,21 @@
 # reCAPTCHA - A Basic Example Using PHP and MySQL
 
+**I will be maintaining this repository until it is no longer possible. As of 2020-09 this code is still working. However Google has completely removed `recaptchalib.php` after version 1.0.0. My reasons for keeping this going are:**
+
+* It works.
+* It's **far less** complicated to use.
+* Issues with the new "stuff":
+    * The newest(v1.2.4) requires a installation procedure that some people have permissions to install via *Composer* or it is available with *direct download* according to the official README.
+    * The 1.2.4 examples are targeted to Google hosting. There is a lot of unnecessary "stuff" that most people will not use or care about.
+    * I have tried adapting the "examples" to tub used my hosting server. There are no guides, or usable information regarding what to do in a no-Composer environment.
+* I fixed the PHP deprecation warning about the *constructor* in `recaptchalib.php`.
+
+In addition to keeping `recaptchalib.php` around I have also modified a copy of v1.2.4 so that *it can be used* in a similar way to `recaptchalib.php`. 
+
+
+
+# Table of Contents
+
 * [Overview](#overview)
     * [History](#history)
 * [Requirements](#requirements)
@@ -7,10 +23,10 @@
     * [Local Server](#local-server)
 * [Components](#components)
 * [Use](#use)
+    * [Without MySQL](#without-mysql)
     * [With MySQL](#with-mysql)
         * [MySQL Configuration Items](#mysql-configuration-items)
         * [SQL Files](#sql-files)
-    * [Without MySQL](#without-mysql)
     * [Screen Shot](#screen-shot)
 * [Features](#features)
     * [Configuration](#configuration)
@@ -29,7 +45,7 @@ As an *improvement* to the gallery version I decided to use a MySQL database to 
 # Requirements
 
 * An internet web server capable of **https**, or a local **http** server (*for development*) running on your PC. 
-* PHP 5.6 or newer.
+* PHP 7.x or newer.
 * You must sign up for a reCAPTCHA account and obtain the site key and secret for your site. Start here - <https://www.google.com/recaptcha/intro/index.html>. 
 
 ## reCAPTCHA and localhost
@@ -43,7 +59,9 @@ localhost
 
 ## Local Server
 
-My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see [MAMP Set Up](https://bitbucket.org/jxmot/toolbox/src/f748ca316f0095eb0e298a24348f21b2315808d9/MAMP.md?fileviewer=file-view-default). Another option is to disable *one* of your MySQL servers.
+My preference for a local HTTP server is MAMP(<https://www.mamp.info/en/>). There are alternatives, including a web server running on a virtual machine. However MAMP is very easy to use and there's a *free* version. The free version also includes MySQL. However, if you're already running a MySQL server you will need to make modifications to the MAMP server configuration files. A guide can be found in my Toolbox, see [MAMP Set Up](https://bitbucket.org/jxmot/toolbox/src/f748ca316f0095eb0e298a24348f21b2315808d9/MAMP.md?fileviewer=file-view-default). Another option is to disable *one* of your MySQL servers.
+
+An alternative to MAMP is XAMPP(<https://www.apachefriends.org/index.html>). I've been using it more than MAMP because I prefer the features and options that are available to me.
 
 # Components
 
@@ -62,6 +80,25 @@ The following files are present -
 # Use
 
 The following sections describe two methods of use, "*With MySQL*" and "*Without MySQL*". To switch between them modify `index.php`, lines 6 and 8. The default is to use MySQL.
+
+## Without MySQL
+
+To prepare for first use edit `site.php` and change the following as needed - 
+
+* line 2 : unique identifier for this reCAPTCHA site, 
+* line 12 : your reCAPTCHA *site key* goes here
+* line 13 : your reCAPTCHA *secret* goes here
+* line 22 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
+* lines 26, 27, 28  : reCAPTCHA page title, heading, and message.
+* line 30 : Submit button caption
+* line 32 : reCAPTCHA theme - `light` or `dark`
+
+**Then follow these steps :**
+
+1. Copy all of the files into a folder on your server. Be careful! Don't put it in your web document root. Place it in a subfolder so you don't over write any existing `index.php` files
+2. Use your browser and go to `https://yourserver/optional-path/`, where `optional-path` is where you placed the files.
+3. Fill in the name field and click the submit button.
+4. The `phpinfo.php` should load and display information about the PHP installation on your server.
 
 ## With MySQL
 
@@ -104,25 +141,6 @@ It should **not** contain any whitespace, or characters not listed above.
 ### SQL Files
 
 The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run them*) to create the table's schema and to seed some data. The data in the `seed.sql` file is for demonstration only, edit as necessary or create your own seed-file.
-
-## Without MySQL
-
-To prepare for first use edit `site.php` and change the following as needed - 
-
-* line 2 : unique identifier for this reCAPTCHA site, 
-* line 12 : your reCAPTCHA *site key* goes here
-* line 13 : your reCAPTCHA *secret* goes here
-* line 22 : this where you would put the path + file for your specific use. For the first test leave this line as-is.
-* lines 26, 27, 28  : reCAPTCHA page title, heading, and message.
-* line 30 : Submit button caption
-* line 32 : reCAPTCHA theme - `light` or `dark`
-
-**Then follow these steps :**
-
-1. Copy all of the files into a folder on your server.
-2. Use your browser and go to `https://yourserver/optional-path/`, where `optional-path` is where you placed the files.
-3. Fill in the name field and click the submit button.
-4. The `phpinfo.php` should load and display information about the PHP installation on your server.
 
 ## Screen Shot
 
