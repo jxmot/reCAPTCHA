@@ -41,7 +41,7 @@ use ReCaptcha\RequestParameters;
 /**
  * Sends POST requests to the reCAPTCHA service.
  */
-class Post implements RequestMethod
+class Post 
 {
     /**
      * URL for reCAPTCHA siteverify API

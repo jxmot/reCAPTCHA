@@ -31,8 +31,12 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 namespace ReCaptcha;
+
+require_once __DIR__ . "/RequestParameters.php";
+require_once __DIR__ . "/RequestMethod/Post.php";
+require_once __DIR__ . "/RequestMethod/CurlPost.php";
+require_once __DIR__ . "/Response.php";
 
 /**
  * reCAPTCHA client.
@@ -43,7 +47,7 @@ class ReCaptcha
      * Version of this client library.
      * @const string
      */
-    const VERSION = 'php_1.2.4';
+    const VERSION = 'php_1.2.4-jxmot.0';
 
     /**
      * URL for reCAPTCHA siteverify API
@@ -141,7 +145,8 @@ class ReCaptcha
         }
 
         $this->secret = $secret;
-        $this->requestMethod = (is_null($requestMethod)) ? new RequestMethod\Post() : $requestMethod;
+        // $this->requestMethod = (is_null($requestMethod)) ? new RequestMethod\Post : $requestMethod;
+        $this->requestMethod = (is_null($requestMethod)) ? new RequestMethod\CurlPost : $requestMethod;
     }
 
     /**
@@ -266,4 +271,14 @@ class ReCaptcha
         $this->timeoutSeconds = $timeoutSeconds;
         return $this;
     }
+
+    /**
+     * Returns the version string.
+     *
+     * @return string
+     */
+    public function getVersion() {
+        return self::VERSION;
+    }
+
 }

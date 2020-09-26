@@ -38,12 +38,14 @@ use ReCaptcha\ReCaptcha;
 use ReCaptcha\RequestMethod;
 use ReCaptcha\RequestParameters;
 
+require_once __DIR__ . "/Curl.php";
+
 /**
  * Sends cURL request to the reCAPTCHA service.
  * Note: this requires the cURL extension to be enabled in PHP
  * @see http://php.net/manual/en/book.curl.php
  */
-class CurlPost implements RequestMethod
+class CurlPost
 {
     /**
      * Curl connection to the reCAPTCHA service
