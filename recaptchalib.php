@@ -44,7 +44,7 @@ class ReCaptcha
     private static $_signupUrl = "https://www.google.com/recaptcha/admin";
     private static $_siteVerifyUrl = "https://www.google.com/recaptcha/api/siteverify?";
     private $_secret;
-    private static $_version = "php_1.0.jxmot.0";
+    private static $_version = "php_1.0-jxmot.0";
 
     /**
      * Constructor.
