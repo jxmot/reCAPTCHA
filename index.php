@@ -58,8 +58,8 @@ if ($_POST["g-recaptcha-response"]) {
     Optional silent hit counter and a visitor log of date/
     time and ip address.
 */
-require_once "count.php";
-require_once "callerid.php";
+//require_once "count.php";
+//require_once "callerid.php";
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo SITE_LANG;?>">
