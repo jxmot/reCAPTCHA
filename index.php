@@ -106,7 +106,7 @@ if ($resp != null && $resp->success) {
             <br/>
             <button id="enterSite" type="submit"><?php echo FORM_SUBMIT;?></button>
         </form>
-<?php } ?>
     </div>
+<?php } ?>
 </body>
 </html>
