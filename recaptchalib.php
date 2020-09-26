@@ -134,6 +134,16 @@ class ReCaptcha
 
         return $recaptchaResponse;
     }
+
+    
+    /**
+     * Returns the version string.
+     *
+     * @return string
+     */
+    public function getVersion() {
+        return self::$_version;
+    }
 }
 
 ?>
