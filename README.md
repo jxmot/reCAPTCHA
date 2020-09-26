@@ -1,19 +1,5 @@
 # reCAPTCHA - A Basic Example Using PHP and MySQL
 
-**I will be maintaining this repository until it is no longer possible. As of 2020-09 this code is still working. However Google has completely removed `recaptchalib.php` after version 1.0.0. My reasons for keeping this going are:**
-
-* It works.
-* It's **far less** complicated to use.
-* Issues with the new "stuff":
-    * The newest(v1.2.4) requires a installation procedure that some people have permissions to install via *Composer* or it is available with *direct download* according to the official README.
-    * The 1.2.4 examples are targeted to Google hosting. There is a lot of unnecessary "stuff" that most people will not use or care about.
-    * I have tried adapting the "examples" to tub used my hosting server. There are no guides, or usable information regarding what to do in a no-Composer environment.
-* I fixed the PHP deprecation warning about the *constructor* in `recaptchalib.php`.
-
-In addition to keeping `recaptchalib.php` around I have also modified a copy of v1.2.4 so that *it can be used* in a similar way to `recaptchalib.php`. 
-
-
-
 # Table of Contents
 
 * [Overview](#overview)
@@ -42,11 +28,16 @@ The files contained in this repository are intended to demonstrate the use of re
 
 As an *improvement* to the gallery version I decided to use a MySQL database to store configuration data instead of hard-coding it in the original `site.php` file. That allows me to easily use this code in other applications with only a single line change. And providing that a corresponding row of data exists within the database.
 
+## Recent History
+
+
+
 # Requirements
 
 * An internet web server capable of **https**, or a local **http** server (*for development*) running on your PC. 
 * PHP 7.x or newer.
 * You must sign up for a reCAPTCHA account and obtain the site key and secret for your site. Start here - <https://www.google.com/recaptcha/intro/index.html>. 
+* A MySQL server is optional, 
 
 ## reCAPTCHA and localhost
 
@@ -68,20 +59,39 @@ An alternative to MAMP is XAMPP(<https://www.apachefriends.org/index.html>). I'v
 The following files are present - 
 
 * `index.php` - manages the reCAPTCHA widget and contains a form with a field for a user name and a submit button. 
-* `sitedb.php` - a configuration file that uses MySQL to store configuration data.
-* `site.php` - a configuration file.
-* `count.php` - a *invisible* hit counter. It only updates a count in a file specified in `site.php`. It does not display on the page that contains it.
+* `sitedb.php` - a configuration file that contains all of the MySQL code and settings. It obtains the reCAPTCHA settings and target page URL from the MySQL database.
+* `site.php` - a configuration file. It obtains the reCAPTCHA settings and target page URL.
+* `count.php` - a *invisible* hit counter. It does not display on the page that contains it.
 * `callerid.php` - logging of the visitor's ip address and the date and time they visited.
 * `phpinfo.php` - only displays information regarding the PHP installation on the server. This is the file that is loaded when the reCAPTCHA succeeds *and* the visitor has filled in the name field and clicked the form's submit button.
-* `recaptchalib.php` - obtained from *Google Developers*, for more information see - <https://developers.google.com/recaptcha/docs/faq>
 * `sql/create_table.sql` - an SQL script file that creates the `site` table.
 * `sql/seed.sql` - an SQL script file that seeds a single row.
 
+## reCAPTCHA Libraries
+
+* `recaptchalib.php` - This is the original, the v1.0.0. And it was removed in the second version, v1.1.0. 
+* `ReCaptcha\*.*` - This is v1.2.4, obtained from the [reCAPTCHA PHP client library](<https://github.com/google/recaptcha>). I made some modifications to it:
+    * Composer is no longer required to install it. 
+    * `POST` and `Curl`classes have been modified, and the methods have been tested. I did not modify or test the `Socket` method.
+
 # Use
 
-The following sections describe two methods of use, "*With MySQL*" and "*Without MySQL*". To switch between them modify `index.php`, lines 6 and 8. The default is to use MySQL.
+The following sections describe two methods of use, "*With MySQL*" and "*Without MySQL*". To switch between them modify `index.php`, line 5. The default is to not use MySQL.
 
-## Without MySQL
+```php
+// control over the use of MySQL
+define('USE_MYSQL', false);
+```
+
+The library version is also selected in `index.php`, line 8. The default is to use `recaptchalib.php`.
+
+```php
+// if false or undefined then recaptchalib.php will be used
+// if true then the slightly modified v1.2.4 will be used
+define('USE_V124', false);
+```
+
+## Without MySQL (default)
 
 To prepare for first use edit `site.php` and change the following as needed - 
 
@@ -103,6 +113,9 @@ To prepare for first use edit `site.php` and change the following as needed -
 ## With MySQL
 
 Use the following steps - 
+
+* line 2 : unique identifier for this reCAPTCHA site, it is also used for retrieving the database record.
+* 
 
 1. Edit `sitedb.php`, `create_table.sql` and `seed.sql` as necessary
 2. Run `create_table.sql`
@@ -142,11 +155,14 @@ It should **not** contain any whitespace, or characters not listed above.
 
 The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run them*) to create the table's schema and to seed some data. The data in the `seed.sql` file is for demonstration only, edit as necessary or create your own seed-file.
 
-## Screen Shot
+## Screen Shots
 
 If your reCAPTCHA *site key*, *secret*, and *domains* have been set properly, and your server is running then you should see the following - 
 
-![reCAPTCHA Demo](./mdimg/recaptcha-thumb-900x500.png)
+![reCAPTCHA Demo](./mdimg/recaptcha-thumb_1-816x451.png)
+
+
+![reCAPTCHA Demo](./mdimg/recaptcha-thumb_2-816x451-8b.png)
 
 # Features
 
