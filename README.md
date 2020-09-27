@@ -6,7 +6,6 @@
   * [reCAPTCHA and localhost](#recaptcha-and-localhost)
 - [Components](#components)
   * [reCAPTCHA v1.2.4](#recaptcha-v124)
-    + [Files](#files)
 - [Running the Demonstration](#running-the-demonstration)
   * [Screen Shot](#screen-shot)
 - [Extras](#extras)
