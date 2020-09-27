@@ -9,7 +9,7 @@ session_start();
     validation.
 */
 echo "<h2>userName from the reCAPTCHA page is - ".$_SESSION['userName']."</h2><br>";
-echo "<h2>site_id from the reCAPTCHA page is - ".$_SESSION['site_id']."</h2><br>";
+echo "<h2>site_id from the reCAPTCHA page is - ".$_SESSION['site_id']."</h2><br><br>";
 
 phpinfo(); 
 

@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// control over the use of MySQL
-define('USE_MYSQL', false);
 // if false or undefined then recaptchalib.php will be used
 // if true then the slightly modified v1.2.4 will be used
 define('USE_V124', false);
+// control over the use of MySQL
+define('USE_MYSQL', false);
 
 // site and page specific variables...
 if(defined('USE_MYSQL') && USE_MYSQL === true) {
