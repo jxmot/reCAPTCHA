@@ -27,6 +27,8 @@ This project started out as means to have a reCAPTCHA as part of an entry page t
 
 Those design choices led to the use of MySQL to store reCAPTCHA specific configuration data and page content. The initial version of PHP code that was provided by Google at that time (*[1.0.0](<https://github.com/google/recaptcha/tree/1.0.0>)*) was a single 5kb PHP source file and one PHP example file. The `index.php` is based on that example.
 
+A live demonstration can be viewed **[here](<https://www.jamesmotyl.com/demos/recaptcha/>)**.
+
 # Minimum Requirements
 
 * An internet web server capable of **https**, or a local **http** server (*for development*) running on your PC. 
