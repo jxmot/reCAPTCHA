@@ -13,7 +13,7 @@
     * [With MySQL](#with-mysql)
         * [MySQL Configuration Items](#mysql-configuration-items)
         * [SQL Files](#sql-files)
-    * [Screen Shot](#screen-shot)
+    * [Screen Shots](#screen-shots)
 * [Features](#features)
     * [Configuration](#configuration)
     * [Form User Name](#form-user-name)
@@ -23,6 +23,8 @@
 # Overview
 
 The files contained in this repository are intended to demonstrate the use of reCAPTCHA. I've used a previous version of the code here to create a simple "bot proof" entry into a photo gallery on one of my sites.
+
+
 
 ## History
 
@@ -159,10 +161,19 @@ The `create_table.sql` and `seed.sql` files can be ran (*MySQL Workbench can run
 
 If your reCAPTCHA *site key*, *secret*, and *domains* have been set properly, and your server is running then you should see the following - 
 
-![reCAPTCHA Demo](./mdimg/recaptcha-thumb_1-816x451.png)
-
-
-![reCAPTCHA Demo](./mdimg/recaptcha-thumb_2-816x451-8b.png)
+<p align="center">
+  <img src="./mdimg/recaptcha-thumb_1-816x451.png" alt="sample image" title="sample image #1" width="65%">
+  <h4 align="center">
+      reCAPTCHA Demo - No Database
+  </h4>
+</p>
+<br/><br/>
+<p align="center">
+  <img src="./mdimg/recaptcha-thumb_2-816x451-8b.png" alt="sample image" title="sample image #1" width="65%">
+  <h4 align="center">
+      reCAPTCHA Demo - With MySQL Database
+  </h4>
+</p>
 
 # Features
 
@@ -187,7 +198,7 @@ The user name field is saved in a PHP session as `$_SESSION['userName']`. This m
 
 ## Hit Counter and Caller ID
 
-There are two files unrelated to reCAPTCHA, they are `count.php` and `callerid.php`. Although commented out, they're called in `index.php` on lines 38 and 39. And are commented out as default. The following sections describe their behaviors.
+There are two files unrelated to reCAPTCHA, they are `count.php` and `callerid.php`. Although commented out, they're called in `index.php` on lines 61 and 62. And are commented out as default. The following sections describe their behaviors.
 
 **`count.php` :**
 
