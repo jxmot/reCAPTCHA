@@ -42,17 +42,16 @@ class ReCaptchaResponse
 class ReCaptcha
 {
     private static $_signupUrl = "https://www.google.com/recaptcha/admin";
-    private static $_siteVerifyUrl =
-        "https://www.google.com/recaptcha/api/siteverify?";
+    private static $_siteVerifyUrl = "https://www.google.com/recaptcha/api/siteverify?";
     private $_secret;
-    private static $_version = "php_1.0";
+    private static $_version = "php_1.0-jxmot.0";
 
     /**
      * Constructor.
      *
      * @param string $secret shared secret between site and ReCAPTCHA server.
      */
-    function ReCaptcha($secret)
+    public function __construct($secret)
     {
         if ($secret == null || $secret == "") {
             die("To use reCAPTCHA you must get an API key from <a href='"
@@ -134,6 +133,16 @@ class ReCaptcha
         }
 
         return $recaptchaResponse;
+    }
+
+    
+    /**
+     * Returns the version string.
+     *
+     * @return string
+     */
+    public function getVersion() {
+        return self::$_version;
     }
 }
 
