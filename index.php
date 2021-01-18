@@ -41,7 +41,7 @@ if(!defined('USE_V124') || USE_V124 === false) {
 }
 
 // Was there a reCAPTCHA response?
-if ($_POST["g-recaptcha-response"]) {
+if (isset($_POST['g-recaptcha-response'])) {
     if(!defined('USE_V124') || USE_V124 === false) {
         $resp = $reCaptcha->verifyResponse(
             $_SERVER["REMOTE_ADDR"],
