@@ -1,4 +1,4 @@
-# reCAPTCHA - A Basic Example Using PHP and MySQL
+# [reCAPTCHA - A Basic Example Using PHP and MySQL](https://github.com/jxmot/reCAPTCHA)
 
 - [Overview](#overview)
   * [History](#history)
