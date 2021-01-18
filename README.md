@@ -213,4 +213,6 @@ The following files are used when MySQL is enabled:
 </p>
 
 ---
+<p align="center">
 <img src="http://webexperiment.info/extcounter/mdcount.php?id=recaptcha">
+</p>
