@@ -209,6 +209,9 @@ The following files are used when MySQL is enabled:
 * Might create a MongoDB version.
 
 <p align="center">
-(c) 2017-2020 Jim Motyl
+(c) 2017-2021 Jim Motyl
 </p>
-
+---
+<p align="center">
+<img src="http://webexperiment.info/extcounter/mdcount.php?id=recaptcha">
+</p>
