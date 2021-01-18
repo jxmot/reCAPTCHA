@@ -212,7 +212,3 @@ The following files are used when MySQL is enabled:
 (c) 2017-2020 Jim Motyl
 </p>
 
----
-<p align="center">
-<img src="http://webexperiment.info/extcounter/mdcount.php?id=recaptcha">
-</p>
